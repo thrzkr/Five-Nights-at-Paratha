@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Night With The Paratha's</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!--
+    ASSET PATHS (see ASSETS.txt):
+    assets/images/   assets/sounds/
+  -->
+  <div id="fs-target" class="fs-target">
+    <div id="viewport-43" class="viewport-43">
+      <button type="button" id="btn-fullscreen" class="btn-fullscreen">Fullscreen</button>
+      <div id="static-global" class="static-layer" aria-hidden="true"></div>
+      <div id="screen-menu" class="screen active">
+        <canvas id="menu-static" width="320" height="180"></canvas>
+        <div class="menu-inner">
+          <p class="restaurant-tag">Under Development</p>
+          <h1 class="title glitch" data-text="It's Me">Night With The Paratha's</h1>
+          <p class="subtitle">Night Shift | From 12AM to 6 AM</p>
+          <p class="guard-name">"Wish you well, kid"</p>
+          <div class="menu-buttons">
+            <button type="button" id="btn-new-game">Play</button>
+            <button type="button" id="btn-how">How to Play</button>
+          </div>
+          <p class="menu-foot">Version 1.0 Beta</p>
+        </div>
+      </div>
+
+      <div id="screen-how" class="screen">
+        <div class="panel worn">
+          <h2>How to Play</h2>
+          <ul class="how-list">
+            <li>One night lasts about <strong>10 minutes</strong> (12 AM → 6 AM on the clock).</li>
+            <li><strong>Door</strong> — Only one entrance. Close it when something is in the hall. Closed door drains extra power.</li>
+            <li><strong>Hall light</strong> — Check the corridor before the door. Drains power while held.</li>
+            <li><strong>Cameras</strong> — Nine feeds (CAM 01–09). Track four animatronics. Monitor open drains power.</li>
+            <li>If something enters while the door is open, you will not get a second chance.</li>
+            <li><strong>Pause</strong> — Pause button, <strong>P</strong>, or <strong>Esc</strong> (Esc first closes the cameras). Resume, Sounds on/off, or Main Menu from the pause panel.</li>
+          </ul>
+          <button type="button" id="btn-how-back">Back</button>
+        </div>
+      </div>
+
+      <div id="screen-game" class="screen">
+        <div id="office" class="office worn">
+          <div class="office-wall"></div>
+          <div class="door-frame">
+            <div id="door-panel" class="door"></div>
+            <div id="hall-view" class="hall">
+              <div class="hall-dark"></div>
+              <div id="hall-entity" class="hall-entity hidden"></div>
+            </div>
+          </div>
+          <div class="desk"></div>
+        </div>
+
+        <div id="camera-overlay" class="camera-overlay hidden">
+          <div class="cam-header">
+            <span class="cam-rec">● REC</span>
+            <span id="cam-name">CAM 01 — STAGE</span>
+            <span id="cam-time-hud" class="cam-clock">12:00 AM</span>
+          </div>
+          <div id="cam-feed" class="cam-feed">
+            <div id="cam-room-bg" class="cam-room-bg" aria-hidden="true"></div>
+            <div id="cam-static" class="cam-static"></div>
+            <div id="cam-sprites" class="cam-sprites"></div>
+          </div>
+          <div class="cam-map">
+            <p class="map-label"> 12 March 1997</p>
+            <div id="cam-buttons" class="cam-grid"></div>
+          </div>
+          <button type="button" id="btn-close-cams" class="btn-close-cams">Close Monitor</button>
+        </div>
+
+        <div id="hud" class="hud">
+          <div class="hud-row">
+            <span id="hud-night">The night</span>
+            <span id="hud-clock">12:00 AM</span>
+          </div>
+          <div class="power-bar-wrap">
+            <span>Power</span>
+            <div class="power-bar"><div id="power-fill"></div></div>
+            <span id="power-pct">100%</span>
+          </div>
+          <div class="controls">
+            <button type="button" id="btn-door" class="toggle">Door: <span id="door-state">OPEN</span></button>
+            <button type="button" id="btn-light" class="hold">Hall Light</button>
+            <button type="button" id="btn-cams">Cameras</button>
+            <button type="button" id="btn-pause" class="btn-pause">Pause</button>
+          </div>
+        </div>
+
+        <div id="pause-overlay" class="pause-overlay hidden" aria-hidden="true">
+          <div class="pause-panel worn">
+            <h2 class="pause-title">Paused</h2>
+            <div class="pause-buttons">
+              <button type="button" id="btn-pause-resume">Resume</button>
+              <button type="button" id="btn-pause-sounds">Sounds: On</button>
+              <button type="button" id="btn-pause-menu">Main Menu</button>
+            </div>
+            <p class="pause-hint">Esc / P — pause or resume</p>
+          </div>
+        </div>
+
+        <div id="blackout" class="blackout hidden"></div>
+      </div>
+
+      <div id="screen-gameover" class="screen">
+        <div class="jumpscare-wrap">
+          <div id="jumpscare-face" class="jumpscare-face"></div>
+        </div>
+        <div class="gameover-text" id="gameover-panel">
+          <h2 id="go-title">GAME OVER</h2>
+          <p id="go-reason"></p>
+          <button type="button" id="btn-retry">Try Again</button>
+          <button type="button" id="btn-menu">Main Menu</button>
+        </div>
+      </div>
+
+      <div id="screen-win" class="screen">
+        <div class="panel worn win-panel">
+          <h2>6:00 AM</h2>
+          <p id="win-message">You made it, Humayun.</p>
+          <button type="button" id="btn-win-retry">Play Again</button>
+          <button type="button" id="btn-win-menu">Main Menu</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>

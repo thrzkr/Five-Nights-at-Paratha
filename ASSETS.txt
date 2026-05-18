@@ -1,0 +1,44 @@
+A Night With The Paratha — asset filenames (itch.io)
+====================================================
+
+Folders (next to index.html):
+
+  assets/sounds/
+  assets/images/
+
+SOUNDS — filenames expected by game.js
+--------------------------------------
+  menu.mp3           — main menu loop (optional)
+  ambiance.mp3       — office night loop
+  doorclose.mp3
+  dooropen.mp3
+  camopen.mp3
+  camswitch.mp3      — short click when selecting a camera on the map
+  camstatic.mp3    — looping CRT/static while camera monitor is open
+  powerout.mp3
+  scream.mp3         — jumpscare sting
+  6am.mp3            — morning win
+  Parathalaugh.mp3   — random 1–2× during the night
+  phonecall1.mp3     — one call near the start of the shift (single 10‑minute night)
+
+IMAGES
+------
+  jumpscare.jpg      — full-screen scare (optional; CSS fallback if missing)
+  hall.jpg           — office hall figure when light on (optional)
+
+  stage.jpg
+  dining.jpg
+  arcade.jpg
+  kitchen.jpg
+  storage.jpg
+  counter.jpg
+  securityhall.jpg
+  lobby.jpg
+  bathroom.jpg       — one per camera feed (CAM 01–09 order)
+
+  khalid.png         — Brown Lion / Khalid (camera sprite, PNG)
+  billo.png
+  labib.png
+  jibran.png
+
+If a file is missing, that effect or background is skipped or falls back to CSS.
